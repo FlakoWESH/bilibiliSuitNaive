@@ -1,16 +1,22 @@
-# BiliBili 装扮素材说明文档
+# Suit分支
+
+## 与原仓库相比的改动
+
+- 移除前端，变成了命令行工具，只能通过装扮id识别
+- 增加了**动态卡片**、**加载动画**、**点赞动画**、**进度条**的获取
+- 修改emoji保存路径
+
+## 待更新
+
+- 点赞动画合并（目前为.bin * 2 + .png）
+
+- 获取特殊装扮（XX限定、XX特辑等）
 
 ## 实现方式
 
 模拟Bilibili浏览装扮页面，根据网页响应JSON保存相应媒体资源。
 
 使用API：
-
-> https://api.bilibili.co/x/garb/internal/mall/suit/all
-
-请求方式：GET
-
-返回格式：JSON
 
 > https://api.bilibili.com/x/garb/mall/item/suit/v2
 
@@ -27,16 +33,8 @@
 
 ## 运行方式
 
-1. 使用Python脚本运行：请确保 Python 环境已安装`requests`及`Flask`，确保安装之后运行`main.py`即可
-2. 使用二进制文件直接运行：双击`main.exe`运行即可。由于缺少编译环境故只编译了Windows版本，其他版本建议使用Python源文件直接运行
-
-打开过后会自动打开一个浏览器页面。打不开也没关系，手动在浏览器地址栏输入
-
-```http
-http://localhost:1418/
-```
-
-也可使用。
+1. 使用Python脚本运行：请确保 Python 环境已安装`requests`，确保安装之后运行`main.py`即可
+2. 使用二进制文件直接运行：双击`BiliSuitGet.exe`运行即可。由于缺少编译环境故只编译了Windows版本，其他版本建议使用Python源文件直接运行
 
 ## 使用说明
 
