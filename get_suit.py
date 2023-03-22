@@ -71,8 +71,8 @@ def get_suit(suit_id, base_dir='./'):
     bg_dict = res['data']['suit_items']['space_bg'][0]['properties']
     bg_list = list()
     for key, value in bg_dict.items():
-        if key != 'fan_no_color':
-            # if key[0] == 'i':
+        # if key != 'fan_no_color':
+        if key[0] == 'i':
             bg_list.append((key, value))
     #"""
     if not exists(base_dir + '/background/'):
