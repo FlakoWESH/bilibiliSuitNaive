@@ -1,5 +1,5 @@
-import get_emoji
+import get_charge
 
 if __name__ == '__main__':
     RoomId = input("RoomId：")
-    get_emoji.get_emoji(RoomId)
+    get_charge.get_charge(RoomId)

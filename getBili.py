@@ -1,7 +1,7 @@
 import requests
 import errors
 
-cookies = "_uid=your _uid; SESSDATA=your SESSDATA"
+cookies = "_uid=your _uid; SESSDATA=your SESSDATA	"
 
 hd = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54',
@@ -25,6 +25,7 @@ def liver_uid(room_id):
         errors._show_error(1)
         return dict(), 1
     return uid
+
 
 # uid -> room id
 def liver_room(uid):
@@ -67,6 +68,21 @@ def live_emoji(room_id):
         bq_get = r.get(
             "https://api.live.bilibili.com/xlive/web-ucenter/v2/emoticon/GetEmoticons?platform=pc&room_id="
             + str(room_id),
+            headers=hd
+        )
+    except:
+        errors._show_error(1)
+        return dict(), 1
+    return bq_get
+
+
+# 获取充电表情（包括UP主大表情）
+def charge_emoji(uid):
+    try:
+        bq_get = r.get(
+            "https://api.bilibili.com/x/emote/creation/package/list?appkey=1d8b6e7d45233436&build=7080200&business"
+            "=reply&mobi_app=android&up_mid="
+            + str(uid),
             headers=hd
         )
     except:
