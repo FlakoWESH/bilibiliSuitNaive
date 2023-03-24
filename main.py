@@ -1,5 +1,5 @@
-import get_suit
+import get_emoji
 
 if __name__ == '__main__':
-    a = input("装扮id：")
-    get_suit.get_suit(a)
+    RoomId = input("RoomId：")
+    get_emoji.get_emoji(RoomId)
