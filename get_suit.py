@@ -13,7 +13,7 @@ def get_suit(suit_id, base_dir='./'):
 
     输出: 素材文件夹
     """
-    final_status = 100
+
     try:
         rq_get = get(
             "https://api.bilibili.com/x/garb/v2/mall/suit/detail?item_id="
@@ -59,7 +59,6 @@ def get_suit(suit_id, base_dir='./'):
                     emoji_file.write(get(item[1]).content)
             except:
                 pass
-            final_status = 101
         except Exception as e:
             print(str(e))
             return
@@ -69,8 +68,8 @@ def get_suit(suit_id, base_dir='./'):
     bg_dict = res['data']['suit_items']['space_bg'][0]['properties']
     bg_list = list()
     for key, value in bg_dict.items():
-        if key != 'fan_no_color':
-            # if key[0] == 'i':
+        # if key != 'fan_no_color':
+        if key[0] == 'i':
             bg_list.append((key, value))
     # """
     if not exists(base_dir + '/background/'):
@@ -210,8 +209,6 @@ def get_suit(suit_id, base_dir='./'):
                 print('Thumb up Error: \n' + str(e))
                 return
         # """
-
-    return res, final_status
 
 
 while True:
